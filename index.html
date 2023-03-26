@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GenPhy2</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="symbols">
+	<p><delta></delta> 一段時間</p>
+	<p><texI>Q</texI> Heat (給系統的熱)</p>
+	<p><texI>T</texI> Temperature (溫度)</p>
+	<p><texI>E</texI> Energy (能量)</p>
+	<p><texI>W</texI> Work (功 <texI>J</texI>)</p>
+	<p><texI>P</texI> Pressure (壓力)</p>
+	<p><texI>S</texI> Entropy (雜亂度) <delta></delta><texI>S</texI> (雜亂度的變化量)</p>
+	<p><texI>C<sub>p</sub></texI> (氣體的比熱, 定壓)</p>
+	<p><texI>C<sub>v</sub></texI> (氣體的比熱, 體積)</p>
+	<p><texI>K</texI> Kelvin (1℃ = 273.15K)</p>
+	<p><texI>torr</texI> 托 (毫米汞柱) 1 torr = <fract>1/766</fract> atm</p>
+</div>
+
+<div id="lawsOfThermodynamics">
+	<h3>Laws Of Thermodynamics</h3>
+	<h4>Zeroth law</h4>
+	<p>
+		If bodies A and B are each in thermal equilibrium with a third body,
+		then A and B are in thermal equilibrium with each other.
+	</p>
+	<h4>First law</h4>
+	<p>
+		<delta></delta><texI>E<sub>int</sub> = E<sub>int,f</sub> - E<sub>int,i</sub> = Q - W</texI><br>
+		Law of Conservation of Energy, states that energy cannot be created or destroyed in an isolated system.<br>
+		某物在<delta></delta>時間的內能變化量 = 結束的能量 - 開始的能量 = 物體得到的熱量(<texI>J</texI>) - 物體對外界做的功(<texI>J</texI>)
+	</p>
+	<h4>Second law</h4>
+	<p>
+		<delta></delta><texI>S = S<sub>f</sub> - S<sub>i</sub> =
+		<integ><top>f</top><bottom>i</bottom></integ> <fract>dQ/T</fract></texI><br>
+		<delta></delta><texI>S ≥ 0</texI><br>
+		Entropy of any isolated system always increases.
+	</p>
+	<h4>Third law</h4>
+	<p>
+		<texI>S</texI> → Const at T = 0<br>
+		Entropy of a system approaches a constant value as the temperature approaches absolute zero.
+	</p>
+</div>
+
+<div id="proof">
+	<h4>Adiabatic expansion</h4>
+	<texI>dE<sub>int</sub> = Q - PdV (Q=0) = -PdV</texI><br>
+	<texI>dE<sub>int</sub></texI><br>
+	<texI> = nC<sub>v</sub>dT - O</texI><br>
+	<texI> = nC<sub>p</sub>dT - w</texI><br>
+	<br>
+	<texI>dE<sub>int</sub> = nC<sub>p</sub>dT = -PdV</texI><br>
+	<texI>dE<sub>int</sub> = nC<sub>v</sub>dT = -PdV</texI><br>
+	<texI> => ndT = <fract>-P/C<sub>v</sub></fract> dV</texI><br>
+	<texI> pV = nRT => pdv + Vdp = nrdT</texI><br>
+	<texI> => ndT = <fract>p<sub>dv</sub> + vdp/R</fract></texI><br>
+	<texI> = <fract>p<sub>dv</sub> + vdp/C<sub>p</sub> - C<sub>v</sub></fract></texI><br>
+
+</div>
+
+<div class="chapters" id="ch18p3">
+	<h4>Chapter 18, Problem 3</h4>
+	<div class="image">
+		<img src="res/problems/ch18/p3.png" alt="problem 3"/>
+	</div>
+	<p>
+		令<texI>T<sub>L</sub></texI>為溫度，<texI>p<sub>L</sub></texI>為左側溫度計中的壓力。<br>
+		設<texI>T<sub>R</sub></texI>為溫度，<texI>p<sub>R</sub></texI>為右側溫度計中的壓力。<br>
+		根據問題陳述，當兩個溫度計都處於水的三相點時，它們的壓力相同。我們將此壓力設為<texI>p<sub>3</sub></texI>。<br>
+		<texI>T = T<sub>3</sub>(<fract>p/p<sub>3</sub></fract>) = (<span>273.16K</span>)(<fract>p/p<sub>3</sub></fract>)</texI><br>
+		<texI>T<sub>L</sub> = (<span>273.16K</span>)(<fract>p<sub>L</sub>/p<sub>3</sub></fract>)</texI><br>
+		<texI>T<sub>R</sub> = (<span>273.16K</span>)(<fract>p<sub>R</sub>/p<sub>3</sub></fract>)</texI><br>
+		<texI>T<sub>L</sub> - T<sub>R</sub> = (<span>273.16K</span>)(<fract>p<sub>L</sub> - p<sub>R</sub>/p<sub>3</sub></fract>)</texI><br>
+		<texI>T<sub>L</sub> = <span>373.125K</span></texI> (水的沸點), <texI>T<sub>R</sub> = <span>273.16K</span></texI> (水的三相點)<br>
+		<texI>p<sub>L</sub> - p<sub>R</sub> = <span>132 torr</span></texI> 得到<br>
+		<texI><span>373.125K - 273.16K</span> = (<span>273.16K</span>)(<fract>132 torr/p<sub>3</sub></fract>)</texI><br>
+		<texI>p<sub>3</sub> = <span>273.16</span> × <fract><span>132 torr</span>/<span>373.125K - 273.16K</span></fract> = <span>360.6974</span></texI><br>
+		<texI>p<sub>3</sub> = <span>360.6974, Let</span> T<sub>R</sub> = <span>273.16K(水的三相點),</span> T<sub>L</sub> <span>為未知溫度. 壓力差為</span> p<sub>L</sub> - p<sub>R</sub> = 85 torr</texI><br>
+		<texI>T<sub>L</sub> - <span>273.16K</span> = (<span>273.16K</span>)(<fract>85 torr / 360.6974 torr</fract>)</texI><br>
+		<texI>T<sub>L</sub> = <span>273.16K</span> × <fract><span>85 torr</span>/<span>360.6974 torr</span></fract> + <span>273.16K</span> = <span>337.5314</span></texI><br>
+		<texI>T<sub>L</sub> =  <span>338K</span></texI><br>
+	</p>
+	<label>T<sub>L</sub> <input id="ch18p3_1" value="373.125"></label><br>
+	<label>T<sub>R</sub> <input id="ch18p3_2" value="273.16"></label><br>
+	<label>Pressure difference, triple point, boil point <input id="ch18p3_3" placeholder="132 torr"></label><br>
+	<label>Pressure difference, triple point, unknown <input id="ch18p3_4" placeholder="85 torr"></label><br>
+	<input type="button" value="calculate" onclick="ch18p3();">
+	<input id="ch18p3_r" disabled>
+	<script>
+		function ch18p3(){
+			const TL = parseFloat(document.getElementById("ch18p3_1").value);
+			const TR = parseFloat(document.getElementById("ch18p3_2").value);
+			const a = parseFloat(document.getElementById("ch18p3_3").value);
+			const b = parseFloat(document.getElementById("ch18p3_4").value);
+			const p3 = TR * a / (TL - TR);
+			const result = TR * b / p3 + TR;
+			document.getElementById("ch18p3_r").value = result;
+		}
+	</script>
+</div>
+
+
+<div class="chapters" id="ch18p20">
+	<h4>Chapter 18, Problem 20</h4>
+	<div class="image">
+		<img src="res/problems/ch18/p20.png" alt="problem 20"/>
+	</div>
+	<p>
+		We divide <texI><delta></delta>L = Lα<delta></delta>T</texI> by the time increment <texI><delta></delta>t</texI> and equate it to the (constant) speed <br>
+		<texI>v = </texI>130×10<sup>9</sup> m/s.<br>
+		<texI>v = αL<sub>0</sub> <fract><delta></delta>T/<delta></delta>t</fract></texI><br>
+		where <texI>L<sub>0</sub> = </texI>0.022 m and <texI>α = <span>23×10<sup>-6</sup>/℃</span></texI>. Thus, we obtain<br>
+		<texI><fract><delta></delta>T/<delta></delta>t</fract> = <span>0.257</span><fract>℃/s</fract> = <span>0.257</span><fract>K/s</fract></texI><br>
+		<br>
+
+		AT ΔΙ = 257 = 0.257 S K
+	</p>
+	<label>d = <input id="ch18p20_1" value="2.2"> cm</label><br>
+	<label>speed, v =<input id="ch18p20_2" value="130">nm/s</label><br>
+	<label>linear expansion =<input id="ch18p20_3" value="23e-6">1/℃</label><br>
+	<input type="button" value="calculate" onclick="ch18p20();">
+	<input id="ch18p20_r" disabled>
+	<script>
+		function ch18p20(){
+			const l = parseFloat(document.getElementById("ch18p20_1").value) / 100;
+			const v = parseFloat(document.getElementById("ch18p20_2").value) * 1e-9;
+			const a = parseFloat(document.getElementById("ch18p20_3").value);
+			const result = v / a / l;
+			document.getElementById("ch18p20_r").value = result;
+		}
+	</script>
+</div>
+
+
+<div class="chapters" id="ch18p34">
+	<h4>Chapter 18, Problem 34</h4>
+	<div class="image">
+		<img src="res/problems/ch18/p34.png" alt="problem 34"/>
+	</div>
+	<p>
+		We divide <texI><delta></delta>L = Lα<delta></delta>T</texI> by the time increment <texI><delta></delta>t</texI> and equate it to the (constant) speed <br>
+		<texI>v = </texI>130×10<sup>9</sup> m/s.<br>
+		<texI>v = αL<sub>0</sub> <fract><delta></delta>T/<delta></delta>t</fract></texI><br>
+		where <texI>L<sub>0</sub> = </texI>0.022 m and <texI>α = <span>23×10<sup>-6</sup>/℃</span></texI>. Thus, we obtain<br>
+		<texI><fract><delta></delta>T/<delta></delta>t</fract> = <span>0.257</span><fract>℃/s</fract> = <span>0.257</span><fract>K/s</fract></texI><br>
+		<br>
+
+		AT ΔΙ = 257 = 0.257 S K
+	</p>
+	<label>d = <input id="ch18p34_1" value="2.2"> cm</label><br>
+	<label>speed, v =<input id="ch18p34_2" value="130">nm/s</label><br>
+	<label>linear expansion =<input id="ch18p34_3" value="23e-6">1/℃</label><br>
+	<input type="button" value="calculate" onclick="ch18p34();">
+	<input id="ch18p34_r" disabled>
+	<script>
+		function ch18p34(){
+			const l = parseFloat(document.getElementById("ch18p34_1").value) / 100;
+			const v = parseFloat(document.getElementById("ch18p34_2").value) * 1e-9;
+			const a = parseFloat(document.getElementById("ch18p34_3").value);
+			const result = v / a / l;
+			document.getElementById("ch18p34_r").value = result;
+		}
+	</script>
+</div>
+
+
+<script>
+	function fraction(top, bottom) {
+		return `<fract><top>${top}</top><bottom>${bottom}</bottom></fract>`
+	}
+
+	/**
+	 * @param {Node} node
+	 * @return {string}
+	 */
+	function nodeToHtml(node){
+		if(node instanceof Element)
+			return node.outerHTML;
+		else
+			return node.textContent;
+	}
+
+	for (const f of document.getElementsByTagName('fract')) {
+		let splitElement = null;
+		let preBottom = '';
+		let endTop = '';
+		const childNodes = f.childNodes;
+		for (const node of childNodes) {
+			if (node instanceof Text) {
+				const text = node.textContent;
+				const spl = text.indexOf('/');
+				if (spl === -1) continue;
+				if (spl === 0) {
+					splitElement = node;
+					if (text.length > 1)
+						preBottom = text.slice(1);
+					break;
+				}
+				endTop = text.slice(0, spl);
+				preBottom = text.slice(spl + 1);
+				// Only text
+				if (childNodes.length === 1 && text.length === 1)
+					f.innerHTML = fraction(endTop, preBottom);
+				// Have more
+				else
+					splitElement = node;
+				break;
+			}
+		}
+
+		// Split element
+		if (splitElement !== null) {
+			let top = '', bottom = null;
+			for (const node of f.childNodes) {
+				if (bottom === null) {
+					if (node === splitElement) {
+						top += endTop;
+						bottom = preBottom;
+						continue;
+					}
+					top += nodeToHtml(node);
+				} else
+					bottom += nodeToHtml(node);
+			}
+			f.innerHTML = fraction(top, bottom);
+		}
+	}
+</script>
+</body>
+</html>
