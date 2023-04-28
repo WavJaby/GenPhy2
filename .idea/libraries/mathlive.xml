@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="mathlive" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_unpkg.com_mathlive@0.92.1_dist_mathlive.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_unpkg.com_mathlive@0.92.1_dist_mathlive.js" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -8,5 +8,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="evaluatex" level="project" />
+    <orderEntry type="library" name="mathlive" level="project" />
+    <orderEntry type="library" name="latex.js" level="application" />
+    <orderEntry type="library" name="@cortex-js/compute-engine" level="application" />
   </component>
 </module>

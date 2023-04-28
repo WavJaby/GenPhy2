@@ -2,117 +2,23 @@ html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
+}
+
+math-field:not(:defined) {
+	display: none;
+}
+
+body {
+	background: black;
+	color: white;
 	font-size: 18px;
-}
-
-sub {
-	vertical-align: sub;
-	font-size: smaller;
-}
-
-h1, h2, h3, h4, h5, p {
 	font-family: sans-serif;
-}
-
-h1, h2, h3, h4, h5, p {
-	margin: 0;
-}
-
-h4 {
-	margin-top: 10px;
-}
-
-texI {
-	font-style: italic;
-}
-
-texI, tex {
-	font-family: "Nimbus Roman No9 L", "Times New Roman", Times, serif;
-	/*font-weight: bold;*/
-}
-
-delta::before {
-	font-family: "Nimbus Roman No9 L", "Times New Roman", Times, serif;
-	font-weight: bold;
-	font-style: normal;
-	content: "Δ";
-}
-
-
-integ {
 	position: relative;
-	display: inline-block;
+	overflow: hidden;
 }
 
-integ::before {
-	content: "∫";
-	font-size: 2em;
-	line-height: 1.4em;
-	vertical-align: middle;
-}
-
-integ > top {
-	margin-left: 3px;
-	vertical-align: top;
-}
-
-integ > bottom {
-	position: absolute;
-	bottom: 0;
-	left: 0.4em;
-}
-
-
-fract {
-	position: relative;
-	vertical-align: middle;
-	display: inline-block;
-}
-
-fract > top {
-	display: block;
-	margin: 0 5px 4px 5px;
-	text-align: center;
-}
-
-fract > bottom {
-	display: block;
-	margin: 0 5px;
-	text-align: center;
-}
-
-fract::after {
-	content: "";
-	height: 0;
-	width: 100%;
-	border-bottom: solid 1px;
-	position: absolute;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	margin: auto;
-}
-
-
-.chapters {
-	width: 100%;
-}
-
-.chapters > .image {
-	width: 100%;
-	overflow: auto;
-}
-
-.chapters > .image > img {
-	width: 800px;
-}
-
-texi span {
-	font-style: normal;
-}
-
-body > div {
-	margin-top: 10px;
-	padding: 0 5px;
-	box-sizing: border-box;
+@media not (pointer: coarse) {
+	math-field::part(virtual-keyboard-toggle) {
+		display: none;
+	}
 }
