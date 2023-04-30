@@ -48,7 +48,12 @@ math-field {
 	display: inline-block;
 }
 
-/*#ch23p36,*/
-/*#ch23p40 {*/
-/*	display: none;*/
-/*}*/
+#ch23p36,
+#ch23p40,
+#ch24p7,
+#ch24p17,
+#ch24p21,
+#ch24p55
+{
+	display: none;
+}

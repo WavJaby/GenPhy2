@@ -19,6 +19,16 @@
 <p id="result" class="result"></p>
 <!--<math-field id="variables"></math-field>-->
 
+<div class="chapters" id="prove1">
+	<h4>Cylindrical capacitor prove</h4>
+	<p>
+		\(Q = \epsilon_0\phi = \epsilon_0EA = \epsilon_0E4\pi r^2\)<br>
+		\(\rArr E = \dfrac{1}{4\pi\epsilon_0}\dfrac{Q}{r^2}\)<br>
+		\(V = \int Eds = \dfrac{Q}{4\pi\epsilon_0}\int_a^b\dfrac{1}{r^2}dr\)<br>
+		\(= \dfrac{Q}{4\pi\epsilon_0}\Bigg(\dfrac{1}{a}-\dfrac{1}{b}\Bigg) = \dfrac{Q}{4\pi\epsilon_0}\dfrac{b-a}{ab}\)<br>
+		\(q = CV \rArr C = 4\pi\epsilon_0\dfrac{ab}{b-a}\)<br>
+	</p>
+</div>
 
 <div class="chapters" id="ch23p36">
 	<h4>Chapter 23, Problem 36</h4>
@@ -36,9 +46,9 @@
 		\(=-7.91\times10^{-11}\,N/C\)
 	</p>
 	<math-field id="ch23p36-1" readonly>
-		-(\frac{\placeholder[a]{7.00\times10^{-22}}}{\placeholder[b]{8.85\times 10^{-12}}})
+		-(\frac{\placeholder[a]{7.00\times10^{-22}}}{\placeholder[b]{\epsilon_0}})
 	</math-field>
-	<p id="ch23p36-2" class="result"></p>
+	<p id="ch23p36-2" class="result"></p><p class="result">\(N/C\)</p>
 	<script>
 		problemInitFunctions.push(function (math) {
 			const q = document.getElementById('ch23p36-1');
@@ -66,8 +76,7 @@
 </div>
 
 <div class="chapters" id="ch24p7">
-	<h4>Chapter 23, Problem 40</h4>
-	<img src="res/ch24p7-1.webp" alt="img">
+	<h4>Chapter 24, Problem 7</h4>
 	<p>
 		(a) Using Eq. 24-32, show that the electric potential at a point on the central axis of a thin ring (of charge q and radius R ) and at distance Z from the ring is,<br>
 		\(V=\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{\sqrt{(R^2+z^2)}}\)<br>
@@ -79,8 +88,115 @@
 		\(\rArr V=\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{\sqrt{(R^2+z^2)}}\)<br>
 		(b) <br>
 		\(E=-\dfrac{dV}{dz}=-\dfrac{d}{dz}\Bigg(\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{\sqrt{(R^2+z^2)}}\Bigg)\)<br>
-		\(=-\dfrac{1}{4\pi\epsilon_0}=\Bigg[-\dfrac{1}{2}(R^2+z^2)^{-3/2}(2z)q\Bigg]\)<br>
+		\(=-\dfrac{1}{4\pi\epsilon_0}\Bigg[-\dfrac{1}{2}(R^2+z^2)^{-3/2}(2z)q\Bigg]\)<br>
+		\(E=\dfrac{1}{4\pi\epsilon_0}\dfrac{qz}{\sqrt{(R^2+z^2)^3}}\)
 	</p>
+</div>
+
+<div class="chapters" id="ch24p17">
+	<h4>Chapter 24, Problem 17</h4>
+	<p>
+		An infinite nonconducting sheet has a surface charge density \(\sigma = +5.80pC/m^2\).<br>
+		(a) How much work is done by the electric field due to the sheet if a particle of charge \(q = +1.60\times10^{-19} C\) is moved from the sheet to a point P at distance \(d=3.56cm\) from the sheet?<br>
+		(b) If the electric potential V is defined to be zero on the sheet, what is V at P ?<br>
+		<br>
+		(a) The work done by the electric field is
+		\(W = \int_0^f iq_0\vec E\vec ds = q_0\sigma 2\epsilon_0\int_0^d dz = \dfrac{q_0\sigma d} {2\epsilon_0}\)<br>
+		\(= \dfrac{(1.60\times 10^{-19}C)(5.80\times 10^{-12}C/m^2)(0.0356m)}{2(8.85\times 10^{-12}C^2/N.m^2)}\)<br>
+		\(= 1.87\times 10^{-21} J\)<br>
+		(b) Since \(V-V_0 = -\dfrac{W}{q_0} = -\dfrac{-\sigma z}{2\epsilon_0}\) , with V0 set to be zero on the sheet, the electric potential at P is<br>
+		\(V = -\dfrac{\sigma z}{2\epsilon_0} = -\dfrac{(5.80\times 10^{-12} C/m^2)(0.0356 m)}{2(8.85\times 10^{-12} C^2/N.m^2)}\)<br>
+		\(= -1.17\times 10^{-2}\)
+	</p>
+	<math-field id="ch24p17-1-1" readonly>
+		\frac{\placeholder[a]{1.60\times 10^{-19}}\placeholder[b]{5.80\times 10^{-12}}\placeholder[c]{0.0356}}{2\epsilon_0}
+	</math-field>
+	<p id="ch24p17-1-2" class="result"></p><p class="result">J</p>
+	<math-field id="ch24p17-2-1" readonly>
+		-\frac{\placeholder[a]{5.80\times 10^{-12}} \placeholder[b]{0.0356}}{2\epsilon_0}
+	</math-field>
+	<p id="ch24p17-2-2" class="result"></p><p class="result">V</p>
+	<script>
+		problemInitFunctions.push(function (math) {
+			const q1 = document.getElementById('ch24p17-1-1');
+			const result1 = document.getElementById('ch24p17-1-2');
+			math.setCalculate(q1, result1);
+			const q2 = document.getElementById('ch24p17-2-1');
+			const result2 = document.getElementById('ch24p17-2-2');
+			math.setCalculate(q2, result2);
+		});
+	</script>
+</div>
+
+<div class="chapters" id="ch24p21">
+	<h4>Chapter 24, Problem 17</h4>
+	<p>
+		A solid copper sphere whose radius is \(1.0cm\) has a very thin surface coating of nickel. Some nickel atoms are radioactive, each atom emitting an electron as it decays.
+		Half of these electrons enter the copper sphere, each depositing \(100keV\) of energy there. The other half of the electrons escape, each carrying away a charge \(-e\).
+		The nickel coating has an activity of \(3.70\times 10^8\)  radioactive decays per second. The sphere is hung from a long, nonconducting string and isolated from its surroundings.<br>
+		(a) How long will it take for the potential of the sphere to increase by \(1000 V\) ?<br>
+		(b) How long will it take for the temperature of the sphere to increase by \(5.0 K\) due to the energy deposited by the electrons? The heat capacity of the sphere is \(14 J/K\).<br>
+		<br>
+		(a)
+		\(Q = \dfrac{1}{4\pi\epsilon_0}R\times V\)<br>
+		\(T = \dfrac{Q}{e/2\times t} = \dfrac{(R\times V)/(4\pi\epsilon_0)}{e/2\times t}\)
+	</p>
+	<math-field id="ch24p21-1-1" readonly>
+		\frac{(\placeholder[a]{0.01}*\placeholder[b]{1000})/(1/4\pi\epsilon_0)}{1.60217662\times10^{-19}/2\times\placeholder[c]{3.7\times10^{8}}}
+	</math-field>
+	<p id="ch24p21-1-2" class="result"></p><p class="result">sec</p>
+	<math-field id="ch24p21-2-1" readonly>
+		\frac{(\placeholder[a]{5}\times\placeholder[b]{14})}{(1.60217662\times10^{-19}\times\placeholder[c]{1\times10^{5}})/2\times\placeholder[d]{3.7\times10^{8}}}
+	</math-field>
+	<p id="ch24p21-2-2" class="result"></p><p class="result">sec</p>
+	<script>
+		problemInitFunctions.push(function (math) {
+			const q1 = document.getElementById('ch24p21-1-1');
+			const result1 = document.getElementById('ch24p21-1-2');
+			math.setCalculate(q1, result1);
+			const q2 = document.getElementById('ch24p21-2-1');
+			const result2 = document.getElementById('ch24p21-2-2');
+			math.setCalculate(q2, result2);
+		});
+	</script>
+</div>
+
+<div class="chapters" id="ch24p55">
+	<h4>Chapter 24, Problem 17</h4>
+	<p>
+		The above figure shows three circular, nonconducting arcs of radius R=8.50 cm. The charges on the arcs are
+		\(q_1 = 4.52 pC, q_2 = −2.00q_1,q_3 = +3.00q_1\).<br>
+		With \(V=0\) at infinity, what is the net electric potential of the arcs at the common center of curvature?<br>
+		<br>
+		\(V = \dfrac{1}{4\pi\epsilon_0}\dfrac{q_1-2q_2+3q_1}{R} = \dfrac{1/4\pi\epsilon_0}{8.5\times 10^{-2}} = 0.9656V\)
+	</p>
+	<math-field id="ch24p55-1-1" readonly>
+	</math-field>
+	<p id="ch24p55-1-2" class="result"></p><p class="result">V</p>
+	<script>
+		problemInitFunctions.push(function (math) {
+			const q = document.getElementById('ch24p55-1-1');
+			const result = document.getElementById('ch24p55-1-2');
+			math.setCalculate(q, result);
+		});
+	</script>
+</div>
+
+<div class="chapters" id="ch25p5">
+	<h4>Chapter 25, Problem 5</h4>
+	<img src="res/ch25p5-1.webp" alt="img">
+	<p>
+	</p>
+	<math-field id="ch25p5-1-1" readonly>
+	</math-field>
+	<p id="ch25p5-1-2" class="result"></p>
+	<script>
+		problemInitFunctions.push(function (math) {
+			const q = document.getElementById('ch25p5-1-1');
+			const result = document.getElementById('ch25p5-1-2');
+			math.setCalculate(q, result);
+		});
+	</script>
 </div>
 
 <div class="spacer"></div>

@@ -27,11 +27,13 @@ function init() {
 	const ce = new ComputeEngine.ComputeEngine({latexDictionary: latexDictionary});
 	ce.latexOptions.notation = 'scientific';
 	ce.latexOptions.exponentProduct = '\\times';
-	ce.latexOptions.precision = 5;
+	ce.latexOptions.precision = 10;
+	ce.latexOptions.avoidExponentsInRange = [-6, 3];
+	// console.log(ce.latexOptions);
 	const n = ce.box('Epsilon_0');
 	n.value = '8.854187817e-12';
-	console.log(ce.latexOptions);
-	// ce.assume('\\epsilon_0', '8.854187817\\times10^{-12}')
+	// n.domain = 'Number';
+	// n.value = 0.000000000008854187817;
 
 	const separatorHalf = {label: '[separator]', width: 0.5};
 	mathVirtualKeyboard.layouts = [{
@@ -79,6 +81,7 @@ function init() {
 	this.setCalculate = function (math, result) {
 		calculate(math, result);
 		math.addEventListener('input', () => calculate(math, result));
+		math.addEventListener('focus', () => mathVirtualKeyboard.show());
 	};
 
 	// Init
@@ -87,7 +90,6 @@ function init() {
 
 	const math = document.getElementById('math');
 	const result = document.getElementById('result');
-	math.addEventListener("focus", () => mathVirtualKeyboard.show());
 	this.setCalculate(math, result);
 
 	for (const initFunc of problemInitFunctions) {
