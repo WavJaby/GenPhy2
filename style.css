@@ -3,6 +3,9 @@ html, body {
 	height: 100%;
 	margin: 0;
 	overflow: hidden;
+
+	/*--keycap-height: 4em;*/
+	--keycap-font-size: 1.5em;
 }
 
 body {
