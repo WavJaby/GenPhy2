@@ -32,8 +32,8 @@ function init() {
 	// console.log(ce.latexOptions);
 	const n = ce.box('Epsilon_0');
 	n.value = '8.854187817e-12';
-	// n.domain = 'Number';
-	// n.value = 0.000000000008854187817;
+	const n1 = ce.box('Nu');
+	n1.value = '1.60217662e-19';
 
 	const separatorHalf = {label: '[separator]', width: 0.5};
 	mathVirtualKeyboard.layouts = [{

@@ -11,13 +11,9 @@
 </head>
 <body>
 <math-field id="math">
-	<!--        \frac{\placeholder[numerator][x]{2}}{\placeholder[denominator]{2}}-->
-	<!--\placeholder[numerator][x]{2\cdot10^{-5}}-->
-	<!--\placeholder[variable][x]{a}=\placeholder[value][x]{2\cdot10^{-5}}-->
-	\epsilon_0
+	\nu
 </math-field>
 <p id="result" class="result"></p>
-<!--<math-field id="variables"></math-field>-->
 
 <div class="chapters" id="prove1">
 	<h4>Cylindrical capacitor prove</h4>
@@ -36,7 +32,8 @@
 	<p>
 		In Figure, two large, thin metal plates are parallel and close to each other. On their inner faces, the plates have excess surface charge
 		densities of opposite signs and magnitude \(7.00\times10^{22} C/m^2\).
-		In unit-vector notation, what is the electric field at points (a) to the left of the plates, (b) to the right of them, and (c) between them?<br>
+		In unit-vector notation, what is the electric field at points (a) to the left of the plates, (b) to the right of them, and (c) between
+		them?<br>
 		<br>
 		(a) To the left of the plates: 0<br>
 		(b) To the right of the plates: 0<br>
@@ -48,7 +45,7 @@
 	<math-field id="ch23p36-1" readonly>
 		-(\frac{\placeholder[a]{7.00\times10^{-22}}}{\placeholder[b]{\epsilon_0}})
 	</math-field>
-	<p id="ch23p36-2" class="result"></p><p class="result">\(N/C\)</p>
+	<p class="result"><span id="ch23p36-2"></span>N/C</p>
 	<script>
 		problemInitFunctions.push(function (math) {
 			const q = document.getElementById('ch23p36-1');
@@ -62,15 +59,19 @@
 	<h4>Chapter 23, Problem 40</h4>
 	<img src="res/ch23p40-1.webp" alt="img">
 	<p>
-		A nonconducting solid sphere has a uniform volume charge density ρ. Let be the vector from the center of the sphere to a general point P within the sphere.<br>
-		(a) Show that the electric field at P is given by \(\vec E=\rho\vec r/3\epsilon_0\) (Note that the result is independent of the radius of the sphere.)<br>
+		A nonconducting solid sphere has a uniform volume charge density ρ. Let be the vector from the center of the sphere to a general point P
+		within the sphere.<br>
+		(a) Show that the electric field at P is given by \(\vec E=\rho\vec r/3\epsilon_0\) (Note that the result is independent of the radius of the
+		sphere.)<br>
 		(b) A spherical cavity is hollowed out of the sphere, as shown in the figure. Using superposition concepts,
-		show that the electric field at all points within the cavity is uniform and equal to \(\vec E=\rho\vec r/3\epsilon_0\) where is the position vector from the center of the sphere to the center of the cavity.<br>
+		show that the electric field at all points within the cavity is uniform and equal to \(\vec E=\rho\vec r/3\epsilon_0\) where is the position
+		vector from the center of the sphere to the center of the cavity.<br>
 		<br>
 		(a) From Gauss’ law, we get
 		\(\vec E(\vec r)=\dfrac{1}{4\pi\epsilon_0} \dfrac{q_{enc}}{r^3}\vec r
 		= \dfrac{1}{4\pi\epsilon_0}\dfrac{(4\pi\rho r^3/3)}{r^3}\vec r = \dfrac{\rho\vec r}{3\epsilon_0}\)
-		(b) The charge distribution in this case is equivalent to that of a whole sphere of charge density ρ plus a smaller sphere of charge density -ρ that fills the void. By superposition :
+		(b) The charge distribution in this case is equivalent to that of a whole sphere of charge density ρ plus a smaller sphere of charge density
+		-ρ that fills the void. By superposition :
 		\(\vec E(\vec r) = \dfrac{\rho\vec r}{3\epsilon_0} = \dfrac{-\rho(\vec r-\vec a)}{3\epsilon_0} = \dfrac{\rho\vec a}{3\epsilon_0}\)
 	</p>
 </div>
@@ -78,9 +79,11 @@
 <div class="chapters" id="ch24p7">
 	<h4>Chapter 24, Problem 7</h4>
 	<p>
-		(a) Using Eq. 24-32, show that the electric potential at a point on the central axis of a thin ring (of charge q and radius R ) and at distance Z from the ring is,<br>
+		(a) Using Eq. 24-32, show that the electric potential at a point on the central axis of a thin ring (of charge q and radius R ) and at
+		distance Z from the ring is,<br>
 		\(V=\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{\sqrt{(R^2+z^2)}}\)<br>
-		(b) From this result, derive an expression for the electric field magnitude E at points on the ring’s axis; compare your result with the calculation of E in Module 22-4.<br>
+		(b) From this result, derive an expression for the electric field magnitude E at points on the ring’s axis; compare your result with the
+		calculation of E in Module 22-4.<br>
 		<br>
 		(a) <br>
 		\(r=\sqrt{(R^2+z^2)}\)<br>
@@ -97,25 +100,27 @@
 	<h4>Chapter 24, Problem 17</h4>
 	<p>
 		An infinite nonconducting sheet has a surface charge density \(\sigma = +5.80pC/m^2\).<br>
-		(a) How much work is done by the electric field due to the sheet if a particle of charge \(q = +1.60\times10^{-19} C\) is moved from the sheet to a point P at distance \(d=3.56cm\) from the sheet?<br>
+		(a) How much work is done by the electric field due to the sheet if a particle of charge \(q = +1.60\times10^{-19} C\) is moved from the sheet
+		to a point P at distance \(d=3.56cm\) from the sheet?<br>
 		(b) If the electric potential V is defined to be zero on the sheet, what is V at P ?<br>
 		<br>
 		(a) The work done by the electric field is
 		\(W = \int_0^f iq_0\vec E\vec ds = q_0\sigma 2\epsilon_0\int_0^d dz = \dfrac{q_0\sigma d} {2\epsilon_0}\)<br>
 		\(= \dfrac{(1.60\times 10^{-19}C)(5.80\times 10^{-12}C/m^2)(0.0356m)}{2(8.85\times 10^{-12}C^2/N.m^2)}\)<br>
 		\(= 1.87\times 10^{-21} J\)<br>
-		(b) Since \(V-V_0 = -\dfrac{W}{q_0} = -\dfrac{-\sigma z}{2\epsilon_0}\) , with V0 set to be zero on the sheet, the electric potential at P is<br>
+		(b) Since \(V-V_0 = -\dfrac{W}{q_0} = -\dfrac{-\sigma z}{2\epsilon_0}\) , with V0 set to be zero on the sheet, the electric potential at P
+		is<br>
 		\(V = -\dfrac{\sigma z}{2\epsilon_0} = -\dfrac{(5.80\times 10^{-12} C/m^2)(0.0356 m)}{2(8.85\times 10^{-12} C^2/N.m^2)}\)<br>
 		\(= -1.17\times 10^{-2}\)
 	</p>
 	<math-field id="ch24p17-1-1" readonly>
 		\frac{\placeholder[a]{1.60\times 10^{-19}}\placeholder[b]{5.80\times 10^{-12}}\placeholder[c]{0.0356}}{2\epsilon_0}
 	</math-field>
-	<p id="ch24p17-1-2" class="result"></p><p class="result">J</p>
+	<p class="result"><span id="ch24p17-1-2"></span>J</p>
 	<math-field id="ch24p17-2-1" readonly>
 		-\frac{\placeholder[a]{5.80\times 10^{-12}} \placeholder[b]{0.0356}}{2\epsilon_0}
 	</math-field>
-	<p id="ch24p17-2-2" class="result"></p><p class="result">V</p>
+	<p class="result"><span id="ch24p17-2-2"></span>V</p>
 	<script>
 		problemInitFunctions.push(function (math) {
 			const q1 = document.getElementById('ch24p17-1-1');
@@ -129,13 +134,17 @@
 </div>
 
 <div class="chapters" id="ch24p21">
-	<h4>Chapter 24, Problem 17</h4>
+	<h4>Chapter 24, Problem 21</h4>
 	<p>
-		A solid copper sphere whose radius is \(1.0cm\) has a very thin surface coating of nickel. Some nickel atoms are radioactive, each atom emitting an electron as it decays.
-		Half of these electrons enter the copper sphere, each depositing \(100keV\) of energy there. The other half of the electrons escape, each carrying away a charge \(-e\).
-		The nickel coating has an activity of \(3.70\times 10^8\)  radioactive decays per second. The sphere is hung from a long, nonconducting string and isolated from its surroundings.<br>
+		A solid copper sphere whose radius is \(1.0cm\) has a very thin surface coating of nickel. Some nickel atoms are radioactive, each atom
+		emitting an electron as it decays.
+		Half of these electrons enter the copper sphere, each depositing \(100keV\) of energy there. The other half of the electrons escape, each
+		carrying away a charge \(-e\).
+		The nickel coating has an activity of \(3.70\times 10^8\) radioactive decays per second. The sphere is hung from a long, nonconducting string
+		and isolated from its surroundings.<br>
 		(a) How long will it take for the potential of the sphere to increase by \(1000 V\) ?<br>
-		(b) How long will it take for the temperature of the sphere to increase by \(5.0 K\) due to the energy deposited by the electrons? The heat capacity of the sphere is \(14 J/K\).<br>
+		(b) How long will it take for the temperature of the sphere to increase by \(5.0 K\) due to the energy deposited by the electrons? The heat
+		capacity of the sphere is \(14 J/K\).<br>
 		<br>
 		(a)
 		\(Q = \dfrac{1}{4\pi\epsilon_0}R\times V\)<br>
@@ -144,11 +153,11 @@
 	<math-field id="ch24p21-1-1" readonly>
 		\frac{(\placeholder[a]{0.01}*\placeholder[b]{1000})/(1/4\pi\epsilon_0)}{1.60217662\times10^{-19}/2\times\placeholder[c]{3.7\times10^{8}}}
 	</math-field>
-	<p id="ch24p21-1-2" class="result"></p><p class="result">sec</p>
+	<p class="result"><span id="ch24p21-1-2"></span>sec</p>
 	<math-field id="ch24p21-2-1" readonly>
 		\frac{(\placeholder[a]{5}\times\placeholder[b]{14})}{(1.60217662\times10^{-19}\times\placeholder[c]{1\times10^{5}})/2\times\placeholder[d]{3.7\times10^{8}}}
 	</math-field>
-	<p id="ch24p21-2-2" class="result"></p><p class="result">sec</p>
+	<p class="result"><span id="ch24p21-2-2"></span>sec</p>
 	<script>
 		problemInitFunctions.push(function (math) {
 			const q1 = document.getElementById('ch24p21-1-1');
@@ -162,17 +171,20 @@
 </div>
 
 <div class="chapters" id="ch24p55">
-	<h4>Chapter 24, Problem 17</h4>
+	<h4>Chapter 24, Problem 55</h4>
+	<img src="res/ch24p55-1.png" alt="img">
 	<p>
 		The above figure shows three circular, nonconducting arcs of radius R=8.50 cm. The charges on the arcs are
 		\(q_1 = 4.52 pC, q_2 = −2.00q_1,q_3 = +3.00q_1\).<br>
 		With \(V=0\) at infinity, what is the net electric potential of the arcs at the common center of curvature?<br>
 		<br>
-		\(V = \dfrac{1}{4\pi\epsilon_0}\dfrac{q_1-2q_2+3q_1}{R} = \dfrac{1/4\pi\epsilon_0}{8.5\times 10^{-2}} = 0.9656V\)
+		\(V = \dfrac{1}{4\pi\epsilon_0}\dfrac{q_1-2q_1+3q_1}{R}\)<br>
+		\(= \dfrac{1/4\pi\epsilon_0}{8.5\times 10^{-2}} = 0.956V\)
 	</p>
 	<math-field id="ch24p55-1-1" readonly>
+		\frac{1}{4\pi\epsilon_0}\frac{\placeholder[a]{2\times4.52\times10^{-12}}}{\placeholder[b]{8.5\times 10^{-2}}}
 	</math-field>
-	<p id="ch24p55-1-2" class="result"></p><p class="result">V</p>
+	<p class="result"><span id="ch24p55-1-2"></span>V</p>
 	<script>
 		problemInitFunctions.push(function (math) {
 			const q = document.getElementById('ch24p55-1-1');
@@ -184,12 +196,19 @@
 
 <div class="chapters" id="ch25p5">
 	<h4>Chapter 25, Problem 5</h4>
-	<img src="res/ch25p5-1.webp" alt="img">
+	<img src="res/ch25p5-1.png" alt="img">
 	<p>
+		The capacitor in Fig. 25−25 has a capacitance of 25μ and is initially uncharged.
+		The battery provides a potential difference of 120 V.
+		After switch S is closed, how much charge will pass through it?<br>
+		<br>
+		\(q = CV\)<br>
+		\(= 25\times 10^{-6}\times 120 = 3.0\times 10^{-3}C\)<br>
 	</p>
 	<math-field id="ch25p5-1-1" readonly>
+		\placeholder[a]{25\times 10^{-6}}\times\placeholder[b]{120}
 	</math-field>
-	<p id="ch25p5-1-2" class="result"></p>
+	<p class="result"><span id="ch25p5-1-2"></span>C</p>
 	<script>
 		problemInitFunctions.push(function (math) {
 			const q = document.getElementById('ch25p5-1-1');
@@ -198,6 +217,23 @@
 		});
 	</script>
 </div>
+
+<!--<div class="chapters" id="ch25p10">-->
+<!--	<h4>Chapter 25, Problem 10</h4>-->
+<!--	<img src="res/ch25p10-1.png" alt="img">-->
+<!--	<p>-->
+<!--	</p>-->
+<!--	<math-field id="ch25p10-1-1" readonly>-->
+<!--	</math-field>-->
+<!--	<p class="result"><span id="ch25p10-1-2"></span></p>-->
+<!--	<script>-->
+<!--		problemInitFunctions.push(function (math) {-->
+<!--			const q = document.getElementById('ch25p10-1-1');-->
+<!--			const result = document.getElementById('ch25p10-1-2');-->
+<!--			math.setCalculate(q, result);-->
+<!--		});-->
+<!--	</script>-->
+<!--</div>-->
 
 <div class="spacer"></div>
 
