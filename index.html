@@ -1,163 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>GenPhy2</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/latex.js/dist/latex.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/evaluatex/dist/evaluatex.min.js"></script>
-    <script defer src="https://unpkg.com/mathlive@0.92.1/dist/mathlive.min.js"></script>
-    <script defer src="https://unpkg.com/@cortex-js/compute-engine@0.12.2/dist/compute-engine.min.js"></script>
+	<meta charset="UTF-8">
+	<title>GenPhy2</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<script src="index.js"></script>
+	<script defer src="https://unpkg.com/mathlive@0.92.1/dist/mathlive.min.js"></script>
+	<script defer src="https://unpkg.com/@cortex-js/compute-engine@0.12.2/dist/compute-engine.min.js"></script>
 </head>
 <body>
-<math-field id="variables"></math-field>
-
 <math-field id="math">
-    <!--        \frac{\placeholder[numerator][x]{2}}{\placeholder[denominator]{2}}-->
-    <!--\placeholder[numerator][x]{2\cdot10^{-5}}-->
-    a=123
+	<!--        \frac{\placeholder[numerator][x]{2}}{\placeholder[denominator]{2}}-->
+	<!--\placeholder[numerator][x]{2\cdot10^{-5}}-->
+	<!--\placeholder[variable][x]{a}=\placeholder[value][x]{2\cdot10^{-5}}-->
+	\epsilon_0
 </math-field>
-<!--<math-field id="math" style="font-size: 2em"></math-field>-->
+<p id="result" class="result"></p>
+<!--<math-field id="variables"></math-field>-->
 
-<math-field id="result" readonly></math-field>
+
+<div class="chapters" id="ch23p36">
+	<h4>Chapter 23, Problem 36</h4>
+	<img src="res/ch23p36-1.jpg" alt="img">
+	<p>
+		In Figure, two large, thin metal plates are parallel and close to each other. On their inner faces, the plates have excess surface charge
+		densities of opposite signs and magnitude \(7.00\times10^{22} C/m^2\).
+		In unit-vector notation, what is the electric field at points (a) to the left of the plates, (b) to the right of them, and (c) between them?<br>
+		<br>
+		(a) To the left of the plates: 0<br>
+		(b) To the right of the plates: 0<br>
+		(c) Between the plates:<br>
+		\(\vec E=\Bigg(\dfrac{\sigma}{2\epsilon_0}\Bigg)(-i)+\Bigg(\dfrac{\sigma}{2\epsilon_0}\Bigg)(-i)=\Bigg(\dfrac{\sigma}{\epsilon_0}\Bigg)(-i)\)
+		\(=-\Bigg(\dfrac{7.00\times10^{-22} C/m^2}{8.85\times 10^{-12} C^2/N.m^2}\Bigg)\)
+		\(=-7.91\times10^{-11}\,N/C\)
+	</p>
+	<math-field id="ch23p36-1" readonly>
+		-(\frac{\placeholder[a]{7.00\times10^{-22}}}{\placeholder[b]{8.85\times 10^{-12}}})
+	</math-field>
+	<p id="ch23p36-2" class="result"></p>
+	<script>
+		problemInitFunctions.push(function (math) {
+			const q = document.getElementById('ch23p36-1');
+			const result = document.getElementById('ch23p36-2');
+			math.setCalculate(q, result);
+		});
+	</script>
+</div>
+
+<div class="chapters" id="ch23p40">
+	<h4>Chapter 23, Problem 40</h4>
+	<img src="res/ch23p40-1.webp" alt="img">
+	<p>
+		A nonconducting solid sphere has a uniform volume charge density ρ. Let be the vector from the center of the sphere to a general point P within the sphere.<br>
+		(a) Show that the electric field at P is given by \(\vec E=\rho\vec r/3\epsilon_0\) (Note that the result is independent of the radius of the sphere.)<br>
+		(b) A spherical cavity is hollowed out of the sphere, as shown in the figure. Using superposition concepts,
+		show that the electric field at all points within the cavity is uniform and equal to \(\vec E=\rho\vec r/3\epsilon_0\) where is the position vector from the center of the sphere to the center of the cavity.<br>
+		<br>
+		(a) From Gauss’ law, we get
+		\(\vec E(\vec r)=\dfrac{1}{4\pi\epsilon_0} \dfrac{q_{enc}}{r^3}\vec r
+		= \dfrac{1}{4\pi\epsilon_0}\dfrac{(4\pi\rho r^3/3)}{r^3}\vec r = \dfrac{\rho\vec r}{3\epsilon_0}\)
+		(b) The charge distribution in this case is equivalent to that of a whole sphere of charge density ρ plus a smaller sphere of charge density -ρ that fills the void. By superposition :
+		\(\vec E(\vec r) = \dfrac{\rho\vec r}{3\epsilon_0} = \dfrac{-\rho(\vec r-\vec a)}{3\epsilon_0} = \dfrac{\rho\vec a}{3\epsilon_0}\)
+	</p>
+</div>
+
+<div class="chapters" id="ch24p7">
+	<h4>Chapter 23, Problem 40</h4>
+	<img src="res/ch24p7-1.webp" alt="img">
+	<p>
+		(a) Using Eq. 24-32, show that the electric potential at a point on the central axis of a thin ring (of charge q and radius R ) and at distance Z from the ring is,<br>
+		\(V=\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{\sqrt{(R^2+z^2)}}\)<br>
+		(b) From this result, derive an expression for the electric field magnitude E at points on the ring’s axis; compare your result with the calculation of E in Module 22-4.<br>
+		<br>
+		(a) <br>
+		\(r=\sqrt{(R^2+z^2)}\)<br>
+		\(V=\int\dfrac{1}{4\pi\epsilon_0}\dfrac{dq}{r}=\dfrac{1}{4\pi\epsilon_0}\dfrac{1}{\sqrt{(R^2+z^2)}}\int dq\)<br>
+		\(\rArr V=\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{\sqrt{(R^2+z^2)}}\)<br>
+		(b) <br>
+		\(E=-\dfrac{dV}{dz}=-\dfrac{d}{dz}\Bigg(\dfrac{1}{4\pi\epsilon_0}\dfrac{q}{\sqrt{(R^2+z^2)}}\Bigg)\)<br>
+		\(=-\dfrac{1}{4\pi\epsilon_0}=\Bigg[-\dfrac{1}{2}(R^2+z^2)^{-3/2}(2z)q\Bigg]\)<br>
+	</p>
+</div>
+
+<div class="spacer"></div>
+
+<!--<script id="result" type="math/tex; mode=text"></script>-->
 
 <!--<script type="math/tex; mode=text">-->
 <!--	= a-->
 <!--	\left( x - \frac{-b + \sqrt {b^2-4ac}}{2a} \right)-->
 <!--	\left( x - \frac{-b - \sqrt {b^2-4ac}}{2a} \right)-->
 <!--</script>-->
-
-<script>
-    window.addEventListener('load', function () {
-        const latexDictionary = ComputeEngine.ComputeEngine.getLatexDictionary();
-        for (const l of latexDictionary) {
-            if (l.trigger && l.trigger[0] && l.trigger[0].startsWith('\\placeholder'))
-                l.parse = e => {
-                    e.skipSpaceTokens();
-                    if (e.match('['))
-                        for (; !e.match(']') && !e.atBoundary;)
-                            e.next();
-                    let n = e.matchExpression();
-                    return null === n ? ['Placeholder', n, ['Error', '\'missing\'']] : n;
-                }
-            else if (l.name === 'Equal')
-                l.parse = e => {
-                    let n = e.matchExpression();
-                    console.log(e.lookAhead());
-                    return null === n ? ['Equal', n, ['Error', '\'missing\'']] : n;
-                }
-            // if (l.trigger && l.trigger[0] && l.trigger[0].indexOf(',') != -1)
-            // console.log(l)
-        }
-        // latexDictionary.forEach(l => {
-        // 	l.trigger && l.trigger[0] && l.trigger[0].startsWith('\\placeholder') && console.log(l)
-        // 	l.name === 'Equal' && console.log(l)
-        // })
-
-        const separatorHalf = {label: '[separator]', width: 0.5};
-        mathVirtualKeyboard.layouts = [{
-            label: 'Basic',
-            rows: [
-                [
-                    '[7]', '[8]', '[9]', '[/]', separatorHalf,
-                    {class: 'small', latex: '\\frac{#@}{{#0}}'},
-                    '{#@}^{#0}',
-                    '\\sqrt{#0}',
-                    {label: '[backspace]', width: 1},
-                ],
-                [
-                    '[4]', '[5]', '[6]', '[*]', separatorHalf,
-                    '[(]', '[)]', {class: 'small', latex: '{#@}\\cdot{10^{#0}}'},
-                    '\\le',
-                ],
-                [
-                    '[1]', '[2]', '[3]', '[-]', separatorHalf,
-                    '[', ']', {width: 2, label: '[shift]'},
-                ],
-                [
-                    '[0]', '[.]', '[=]', '[+]', separatorHalf,
-                    '\\lbrace', '\\rbrace', '[left]', '[right]',
-                ],
-            ],
-        }, 'numeric', 'symbols', 'alphabetic', 'greek'];
-        mathVirtualKeyboard.show();
-
-        const ce = new ComputeEngine.ComputeEngine({latexDictionary: latexDictionary});
-        // ce.set({x: 123});
-
-
-        const math = document.getElementById('math');
-        const result = document.getElementById('result');
-        math.addEventListener("focus", () => mathVirtualKeyboard.show());
-
-        calculate(math);
-        math.addEventListener('input', function () {
-            calculate(math);
-        });
-
-        function calculate(math) {
-            const value = math.getValue('latex-expanded');
-            // console.log(evaluatex(value)());
-            console.log('raw', value);
-            const expr = ce.parse(value);
-            result.value = expr.N().latex;
-            // console.log(expr.N().latex);
-            console.log(expr.simplify().json);
-        }
-
-
-        // MathLive.renderMathInDocument({
-        // 	// Elements with a class of "instruction" or "source will be skipped
-        // 	ignoreClass: 'instruction|source',
-        // 	TeX: {
-        // 		delimiters: {
-        // 			// Allow math formulas surround by $...$ or \(...\)
-        // 			// to be rendered as textstyle content.
-        // 			inline: [
-        // 				['$', '$'],
-        // 				['\\(', '\\)'],
-        // 			],
-        // 			display: [],
-        // 		},
-        // 	},
-        // });
-    });
-</script>
-
-
-<script>
-    window.addEventListener('load_', function () {
-        const text = `
-\\(
-  =  a
-  (x - \\frac{-b + \\sqrt {b^2-4ac}}{2a})
-  (x - \\frac{-b - \\sqrt {b^2-4ac}}{2a})
-\\)
-`;
-        const generator = new latexjs.HtmlGenerator({
-            CustomMacros: (function () {
-                const args = CustomMacros.args = {};
-
-                args['bf'] = ['HV', 'g'];
-                CustomMacros.prototype.bf = function () {
-                    console.log(this);
-                    // this.g.setFontWeight('bf');
-                };
-
-                function CustomMacros(generator) {
-                    this.g = generator;
-                }
-
-                return CustomMacros;
-            }())
-        });
-        const parsed = latexjs.parse(text, {generator: generator});
-        document.head.appendChild(parsed.stylesAndScripts("https://cdn.jsdelivr.net/npm/latex.js/dist/"));
-        document.body.appendChild(parsed.domFragment());
-
-        console.log(evaluatex('sqrt(3^2 + 4^2) + log(PI) / log(SQRT2)')());
-    });
-</script>
 </body>
 </html>

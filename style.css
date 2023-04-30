@@ -1,27 +1,54 @@
 html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-}
-
-math-field:not(:defined) {
-    display: none;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
 }
 
 body {
-    background: black;
-    color: white;
-    font-size: 20px;
-    font-family: sans-serif;
-    position: relative;
-    overflow: hidden;
+	background: black;
+	color: white;
+	font-size: 20px;
+	font-family: sans-serif;
+	position: relative;
+	overflow: auto;
+}
+
+.spacer {
+	height: 50%;
+}
+
+img {
+	height: 200px;
+}
+
+h1, h2, h3, h4, h5, p {
+	margin: 0;
+}
+
+h4 {
+	margin-top: 10px;
+}
+
+math-field:not(:defined) {
+	display: none;
 }
 
 math-field::part(virtual-keyboard-toggle) {
-    display: none;
+	display: none;
 }
 
 math-field {
-    font-size: 2em;
-    min-width: 2em;
+	/*font-size: 2em;*/
+	min-width: 2em;
 }
+
+.result {
+	margin: 0;
+	display: inline-block;
+}
+
+/*#ch23p36,*/
+/*#ch23p40 {*/
+/*	display: none;*/
+/*}*/
