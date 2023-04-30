@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>GenPhy2</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css">
-	<script defer src="https://cdn.jsdelivr.net/npm/latex.js/dist/latex.js"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/evaluatex/dist/evaluatex.min.js"></script>
-	<script defer src="https://unpkg.com/mathlive@0.92.1/dist/mathlive.min.js"></script>
-	<script defer src="https://unpkg.com/@cortex-js/compute-engine@0.12.2/dist/compute-engine.min.js"></script>
+    <meta charset="UTF-8">
+    <title>GenPhy2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/latex.js/dist/latex.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/evaluatex/dist/evaluatex.min.js"></script>
+    <script defer src="https://unpkg.com/mathlive@0.92.1/dist/mathlive.min.js"></script>
+    <script defer src="https://unpkg.com/@cortex-js/compute-engine@0.12.2/dist/compute-engine.min.js"></script>
 </head>
 <body>
-<math-field id="math" readonly style="font-size: 2em">
-	\frac{\placeholder[numerator][x]{2}}{\placeholder[denominator]{2}}
-	<!--\placeholder[numerator][x]{2\cdot10^{-5}}-->
+<math-field id="variables"></math-field>
+
+<math-field id="math">
+    <!--        \frac{\placeholder[numerator][x]{2}}{\placeholder[denominator]{2}}-->
+    <!--\placeholder[numerator][x]{2\cdot10^{-5}}-->
+    a=123
 </math-field>
 <!--<math-field id="math" style="font-size: 2em"></math-field>-->
 
-<math-field id="result" readonly style="font-size: 2em"></math-field>
+<math-field id="result" readonly></math-field>
 
 <!--<script type="math/tex; mode=text">-->
 <!--	= a-->
@@ -26,127 +29,135 @@
 <!--</script>-->
 
 <script>
-	window.addEventListener('load', function () {
-		const latexDictionary = ComputeEngine.ComputeEngine.getLatexDictionary()
-			.filter(l => !(l.trigger && l.trigger[0] && l.trigger[0].startsWith('\\placeholder')));
-		// latexDictionary.forEach(l => {
-		// 	l.trigger && l.trigger[0] && l.trigger[0].startsWith('\\cdot') && console.log(l.parse)
-		// 	l.nabla === 'Multiply' && console.log(l.parse)
-		// })
-		latexDictionary.push({
-			trigger: ['\\placeholder'],
-			parse: e => {
-				e.skipSpaceTokens();
-				if (e.match("["))
-					for (; !e.match("]") && !e.atBoundary;)
-						e.next();
-				let n = e.matchExpression();
-				return null === n ? ["Placeholder", n, ["Error", "'missing'"]] : n;
-			}
-		});
-		const separatorHalf = {label: '[separator]', width: 0.5};
-		const separator = '[separator]';
-		mathVirtualKeyboard.layouts = [{
-			label: 'Basic',
-			rows: [
-				[
-					'[7]', '[8]', '[9]', '[/]', separatorHalf,
-					{class: 'small', latex: '\\frac{#@}{{#0}}'},
-					'{#@}^{#0}',
-					'\\sqrt{#0}',
-					{label: '[backspace]', width: 1},
-				],
-				[
-					'[4]', '[5]', '[6]', '[*]', separatorHalf,
-					'[(]', '[)]', {class: 'small', latex: '{#@}\\cdot{10^{#0}}'},
-					'\\le',
-				],
-				[
-					'[1]', '[2]', '[3]', '[-]', separatorHalf,
-					'[', ']', {width: 2, label: '[shift]'},
-				],
-				[
-					'[0]', '[.]', '[=]', '[+]', separatorHalf,
-					'\\lbrace', '\\rbrace', '[left]', '[right]',
-				],
-			],
-		}, 'numeric', 'symbols', 'alphabetic', 'greek'];
-		mathVirtualKeyboard.show();
+    window.addEventListener('load', function () {
+        const latexDictionary = ComputeEngine.ComputeEngine.getLatexDictionary();
+        for (const l of latexDictionary) {
+            if (l.trigger && l.trigger[0] && l.trigger[0].startsWith('\\placeholder'))
+                l.parse = e => {
+                    e.skipSpaceTokens();
+                    if (e.match('['))
+                        for (; !e.match(']') && !e.atBoundary;)
+                            e.next();
+                    let n = e.matchExpression();
+                    return null === n ? ['Placeholder', n, ['Error', '\'missing\'']] : n;
+                }
+            else if (l.name === 'Equal')
+                l.parse = e => {
+                    let n = e.matchExpression();
+                    console.log(e.lookAhead());
+                    return null === n ? ['Equal', n, ['Error', '\'missing\'']] : n;
+                }
+            // if (l.trigger && l.trigger[0] && l.trigger[0].indexOf(',') != -1)
+            // console.log(l)
+        }
+        // latexDictionary.forEach(l => {
+        // 	l.trigger && l.trigger[0] && l.trigger[0].startsWith('\\placeholder') && console.log(l)
+        // 	l.name === 'Equal' && console.log(l)
+        // })
 
-		const ce = new ComputeEngine.ComputeEngine({latexDictionary: latexDictionary});
+        const separatorHalf = {label: '[separator]', width: 0.5};
+        mathVirtualKeyboard.layouts = [{
+            label: 'Basic',
+            rows: [
+                [
+                    '[7]', '[8]', '[9]', '[/]', separatorHalf,
+                    {class: 'small', latex: '\\frac{#@}{{#0}}'},
+                    '{#@}^{#0}',
+                    '\\sqrt{#0}',
+                    {label: '[backspace]', width: 1},
+                ],
+                [
+                    '[4]', '[5]', '[6]', '[*]', separatorHalf,
+                    '[(]', '[)]', {class: 'small', latex: '{#@}\\cdot{10^{#0}}'},
+                    '\\le',
+                ],
+                [
+                    '[1]', '[2]', '[3]', '[-]', separatorHalf,
+                    '[', ']', {width: 2, label: '[shift]'},
+                ],
+                [
+                    '[0]', '[.]', '[=]', '[+]', separatorHalf,
+                    '\\lbrace', '\\rbrace', '[left]', '[right]',
+                ],
+            ],
+        }, 'numeric', 'symbols', 'alphabetic', 'greek'];
+        mathVirtualKeyboard.show();
 
-
-		const math = document.getElementById('math');
-		const result = document.getElementById('result');
-		math.addEventListener("focus", () => mathVirtualKeyboard.show());
-
-		calculate(math);
-		math.addEventListener('input', function () {
-			calculate(math);
-		});
-
-		function calculate(math) {
-			const value = math.getValue('latex-expanded');
-			// console.log(evaluatex(value)());
-			console.log('raw', value);
-			const parsed = ce.parse(value);
-			result.value = parsed.simplify().latex;
-			console.log(parsed.N().latex);
-			console.log(parsed.simplify().latex);
-		}
+        const ce = new ComputeEngine.ComputeEngine({latexDictionary: latexDictionary});
+        // ce.set({x: 123});
 
 
-		// MathLive.renderMathInDocument({
-		// 	// Elements with a class of "instruction" or "source will be skipped
-		// 	ignoreClass: 'instruction|source',
-		// 	TeX: {
-		// 		delimiters: {
-		// 			// Allow math formulas surround by $...$ or \(...\)
-		// 			// to be rendered as textstyle content.
-		// 			inline: [
-		// 				['$', '$'],
-		// 				['\\(', '\\)'],
-		// 			],
-		// 			display: [],
-		// 		},
-		// 	},
-		// });
-	});
+        const math = document.getElementById('math');
+        const result = document.getElementById('result');
+        math.addEventListener("focus", () => mathVirtualKeyboard.show());
+
+        calculate(math);
+        math.addEventListener('input', function () {
+            calculate(math);
+        });
+
+        function calculate(math) {
+            const value = math.getValue('latex-expanded');
+            // console.log(evaluatex(value)());
+            console.log('raw', value);
+            const expr = ce.parse(value);
+            result.value = expr.N().latex;
+            // console.log(expr.N().latex);
+            console.log(expr.simplify().json);
+        }
+
+
+        // MathLive.renderMathInDocument({
+        // 	// Elements with a class of "instruction" or "source will be skipped
+        // 	ignoreClass: 'instruction|source',
+        // 	TeX: {
+        // 		delimiters: {
+        // 			// Allow math formulas surround by $...$ or \(...\)
+        // 			// to be rendered as textstyle content.
+        // 			inline: [
+        // 				['$', '$'],
+        // 				['\\(', '\\)'],
+        // 			],
+        // 			display: [],
+        // 		},
+        // 	},
+        // });
+    });
 </script>
 
 
 <script>
-	window.addEventListener('load_', function () {
-		const text = `
+    window.addEventListener('load_', function () {
+        const text = `
 \\(
   =  a
   (x - \\frac{-b + \\sqrt {b^2-4ac}}{2a})
   (x - \\frac{-b - \\sqrt {b^2-4ac}}{2a})
 \\)
 `;
-		const generator = new latexjs.HtmlGenerator({
-			CustomMacros: (function () {
-				const args = CustomMacros.args = {};
+        const generator = new latexjs.HtmlGenerator({
+            CustomMacros: (function () {
+                const args = CustomMacros.args = {};
 
-				args['bf'] = ['HV', 'g'];
-				CustomMacros.prototype.bf = function () {
-					console.log(this);
-					// this.g.setFontWeight('bf');
-				};
+                args['bf'] = ['HV', 'g'];
+                CustomMacros.prototype.bf = function () {
+                    console.log(this);
+                    // this.g.setFontWeight('bf');
+                };
 
-				function CustomMacros(generator) {
-					this.g = generator;
-				}
+                function CustomMacros(generator) {
+                    this.g = generator;
+                }
 
-				return CustomMacros;
-			}())
-		});
-		const parsed = latexjs.parse(text, {generator: generator});
-		document.head.appendChild(parsed.stylesAndScripts("https://cdn.jsdelivr.net/npm/latex.js/dist/"));
-		document.body.appendChild(parsed.domFragment());
+                return CustomMacros;
+            }())
+        });
+        const parsed = latexjs.parse(text, {generator: generator});
+        document.head.appendChild(parsed.stylesAndScripts("https://cdn.jsdelivr.net/npm/latex.js/dist/"));
+        document.body.appendChild(parsed.domFragment());
 
-		console.log(evaluatex('sqrt(3^2 + 4^2) + log(PI) / log(SQRT2)')());
-	});
+        console.log(evaluatex('sqrt(3^2 + 4^2) + log(PI) / log(SQRT2)')());
+    });
 </script>
 </body>
 </html>
