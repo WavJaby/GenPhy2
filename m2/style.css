@@ -22,7 +22,7 @@ body {
 }
 
 img {
-	max-width: 100%;
+	max-height: 200px;
 }
 
 h1, h2, h3, h4, h5, p {
@@ -52,10 +52,12 @@ math-field {
 	display: inline-block;
 }
 
-#others > img {
-	max-width: 800px;
-}
-
-/*#prove1, #prove2, #prove3, #q0, #q1 {*/
+/*#ch23p36,*/
+/*#ch23p40,*/
+/*#ch24p7,*/
+/*#ch24p17,*/
+/*#ch24p21,*/
+/*#ch24p55*/
+/*{*/
 /*	display: none;*/
 /*}*/
